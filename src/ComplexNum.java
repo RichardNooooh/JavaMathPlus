@@ -30,6 +30,20 @@ public class ComplexNum
 		return Math.sqrt(aSquared + bSquared);
 	}
 
+	public ComplexNum add(ComplexNum addend)
+	{
+		double newA = this.a + addend.a;
+		double newB = this.b + addend.b;
+		return new ComplexNum(newA, newB);
+	}
+
+	public ComplexNum subtract(ComplexNum subtrahend)
+	{
+		double newA = this.a - subtrahend.a;
+		double newB = this.b - subtrahend.b;
+		return new ComplexNum(newA, newB);
+	}
+
 	public static void main(String[] args)
 	{
 
