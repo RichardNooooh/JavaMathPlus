@@ -7,7 +7,7 @@ public class ComplexNum
 
 	//calculated values for quick get
 	private double r;
-	private double t;
+	private Double t;
 
 	public ComplexNum(double a, double b)
 	{
@@ -17,9 +17,12 @@ public class ComplexNum
 		t = setTheta();
 	}
 
-	private double setTheta()
+	private Double setTheta()
 	{
-		return Math.tan(b / a); //TODO make sure this is correct for negative values
+		if (a == 0)
+			return null;
+
+		return Math.atan(b / a); //TODO make sure this is correct for negative values
 	}
 
 	private double setRadius()
@@ -41,6 +44,20 @@ public class ComplexNum
 	{
 		double newA = this.a - subtrahend.a;
 		double newB = this.b - subtrahend.b;
+		return new ComplexNum(newA, newB);
+	}
+
+	public ComplexNum multiply(ComplexNum multiplier)
+	{
+		double newA = (this.a * multiplier.a - this.b * multiplier.b);
+		double newB = (this.a * multiplier.b + this.b * multiplier.a);
+		return new ComplexNum(newA, newB);
+	}
+
+	public ComplexNum multiply(double c)
+	{
+		double newA = this.a * c;
+		double newB = this.b * c;
 		return new ComplexNum(newA, newB);
 	}
 
