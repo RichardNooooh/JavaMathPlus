@@ -53,17 +53,24 @@ public class ComplexNum
 		double newB = (this.a * multiplier.b + this.b * multiplier.a);
 		return new ComplexNum(newA, newB);
 	}
-
-	public ComplexNum multiply(double c)
+	
+	public ComplexNum scale(double c)
 	{
 		double newA = this.a * c;
 		double newB = this.b * c;
 		return new ComplexNum(newA, newB);
 	}
 
+	public ComplexNum rotate(double i)
+	{
+		double newA = -this.a * i;
+		double newB = this.b * i;
+		return new ComplexNum(newA, newB);
+	}
+
 	public static void main(String[] args)
 	{
-
+		System.out.println(3 % 1);
 	}
 
 }
