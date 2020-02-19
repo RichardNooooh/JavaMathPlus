@@ -33,6 +33,26 @@ public class ComplexNum
 		return Math.sqrt(aSquared + bSquared);
 	}
 
+	public double getA()
+	{
+		return a;
+	}
+
+	public double getB()
+	{
+		return b;
+	}
+
+	public double getRadius()
+	{
+		return r;
+	}
+
+	public Double getTheta()
+	{
+		return t;
+	}
+
 	public ComplexNum add(ComplexNum addend)
 	{
 		double newA = this.a + addend.a;
@@ -53,7 +73,7 @@ public class ComplexNum
 		double newB = (this.a * multiplier.b + this.b * multiplier.a);
 		return new ComplexNum(newA, newB);
 	}
-	
+
 	public ComplexNum scale(double c)
 	{
 		double newA = this.a * c;
@@ -68,9 +88,18 @@ public class ComplexNum
 		return new ComplexNum(newA, newB);
 	}
 
+	@Override
+	public String toString()
+	{
+		if (b >= 0)
+			return a + " + " + b + "i";
+		else
+			return a + " - " + b + "i";
+	}
+
 	public static void main(String[] args)
 	{
-		System.out.println(3 % 1);
+
 	}
 
 }
